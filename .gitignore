@@ -1,0 +1,9 @@
+build/
+bin/
+.vscode/
+.cache
+include/
+Resources/compiledShaders/
+Resources/lib/
+.DS_Store
+vkvia.html
