@@ -31,8 +31,6 @@ class App {
         void loadModels() {
             std::vector<VModel::Vertex> vertices{{{0.0f, -0.5f}}, {{0.5f, 0.5f}}, {{-0.5f, 0.5f}}};
             model = std::make_unique<VModel>(device, vertices);
-
-
         };
 
         void run() {

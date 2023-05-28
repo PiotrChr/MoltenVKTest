@@ -12,6 +12,7 @@ Pipeline::Pipeline(Device &device,
 
 Pipeline::~Pipeline() {
     vkDestroyShaderModule(device.device(), fragShaderModule, nullptr);
+    vkDestroyShaderModule(device.device(), vertShaderModule, nullptr);
     vkDestroyPipeline(device.device(), graphicsPipeline, nullptr);
 }
 
