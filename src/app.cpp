@@ -61,8 +61,8 @@ class App {
             pipelineConfig.pipelineLayout = pipelineLayout;
             pipeline = std::make_unique<Pipeline>(
                 device,
-                "compiledShaders/temp.vert.spv",
-                "compiledShaders/temp.frag.spv",
+                "../Resources/compiledShaders/temp.vert.spv",
+                "../Resources/compiledShaders/temp.frag.spv",
                 pipelineConfig
             );
         };

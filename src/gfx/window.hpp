@@ -5,6 +5,7 @@
 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3native.h>
 #include <string>
+#include <stdexcept>
 
 class VWindow {
     public:

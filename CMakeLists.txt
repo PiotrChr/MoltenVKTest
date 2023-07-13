@@ -29,12 +29,12 @@ add_executable(
 
 set(LIBRARIES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Resources/lib")
 
-if (IS_OSX) {
+if (IS_OSX)
     set(GLFW_LIBRARY "${LIBRARIES_DIR}/libglfw.3.3.dylib")    
-}
-if (IS_LINUX) {
+endif()
+if (IS_LINUX)
     set(GLFW_LIBRARY "${LIBRARIES_DIR}/libglfw.so.3.3")
-}
+endif()
 
 
 find_package(Vulkan REQUIRED)
@@ -42,7 +42,7 @@ include_directories(${Vulkan_INCLUDE_DIRS})
 
 # Specify the location of the libraries within the .app bundle
 
-if (IS_OSX) {
+if (IS_OSX)
     set_target_properties(${PROJECT_NAME} PROPERTIES
         MACOSX_BUNDLE TRUE
         MACOSX_FRAMEWORK_IDENTIFIER com.example.VulkanTriangle
@@ -50,14 +50,13 @@ if (IS_OSX) {
         RESOURCE "${GLFW_LIBRARY}"
         INSTALL_RPATH "@loader_path/../Resources/lib"
     )
-}
+endif()
 
-if (IS_LINUX) {
+if (IS_LINUX)
     set_target_properties(${PROJECT_NAME} PROPERTIES
         INSTALL_RPATH "$ORIGIN/../Resources/lib"
     )
-
-}
+endif()
 
 target_link_libraries(${PROJECT_NAME} ${GLFW_LIBRARY} ${Vulkan_LIBRARIES})
 

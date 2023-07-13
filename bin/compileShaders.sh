@@ -19,7 +19,9 @@ fi
 
 if [ ! -d "${compiledShadersDir}" ]; then
   echo "Error compiledShadersDir: ${compiledShadersDir} does not exist"
-  exit 1
+
+  echo "Creating ${compiledShadersDir}"
+  mkdir "${compiledShadersDir}"
 fi
 
 for file in "${shaderDir}"*.vert; do

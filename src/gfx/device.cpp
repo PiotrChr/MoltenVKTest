@@ -321,6 +321,13 @@ bool Device::checkDeviceExtensionSupport(VkPhysicalDevice device) {
     requiredExtensions.erase(extension.extensionName);
   }
 
+  if (!requiredExtensions.empty()) {
+    std::cout << "Missing required extensions:" << std::endl;
+    for (const auto &required : requiredExtensions) {
+      std::cout << "\t" << required << std::endl;
+    }    
+  }
+
   return requiredExtensions.empty();
 }
 

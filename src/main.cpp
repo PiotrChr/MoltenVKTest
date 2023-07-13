@@ -14,28 +14,6 @@
 #endif
 #include "app.cpp"
 
-std::filesystem::path getExecutablePath() {
-    std::vector<char> buffer;
-    uint32_t size;
-
-#if defined(__APPLE__)
-    _NSGetExecutablePath(nullptr, &size);
-    buffer.resize(size);
-    _NSGetExecutablePath(buffer.data(), &size);
-#elif defined(_WIN32)
-    buffer.resize(MAX_PATH);
-    size = GetModuleFileNameA(nullptr, buffer.data(), buffer.size());
-    buffer.resize(size);
-#else
-    // Fallback for other platforms
-    buffer.resize(PATH_MAX);
-    ssize_t result = readlink("/proc/self/exe", buffer.data(), buffer.size());
-    buffer.resize(result);
-#endif
-
-    return std::filesystem::path(buffer.data());
-}
-
 int main(int argc, const char* argv[]) {
     App app{};
     
